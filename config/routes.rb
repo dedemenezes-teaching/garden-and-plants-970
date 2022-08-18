@@ -8,5 +8,7 @@ Rails.application.routes.draw do
   end
 
   # WE ONLY NEST RESOURCES IF WE NEED THE ID OF THE PARENT
-  resources :plants, only: :destroy
+  resources :plants, only: :destroy do
+    resources :plant_tags, only: %i[new create]
+  end
 end
